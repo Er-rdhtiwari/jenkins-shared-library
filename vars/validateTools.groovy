@@ -35,7 +35,17 @@ def call(List requiredList = ['aws', 'docker', 'terraform', 'kubectl', 'helm']) 
                 versionCommand = "${tool} --version"
         }
 
-        String version = shell.runCapture("${versionCommand} 2>&1")
+        String version
+        if (tool == 'kubectl') {
+            int shortStatus = shell.runStatus('kubectl version --client --short >/dev/null 2>&1')
+            if (shortStatus == 0) {
+                version = shell.runCapture('kubectl version --client --short 2>&1')
+            } else {
+                version = shell.runCapture('kubectl version --client 2>&1')
+            }
+        } else {
+            version = shell.runCapture("${versionCommand} 2>&1")
+        }
         shell.info("${tool} version: ${version}")
     }
 }

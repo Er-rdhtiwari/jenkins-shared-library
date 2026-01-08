@@ -1,0 +1,6 @@
+# Example key/value pairs used with helm --set or --set-string
+image.repository: "123456789012.dkr.ecr.us-west-2.amazonaws.com/ai-app"
+image.tag: "1.2.3"
+replicaCount: 2
+service.type: "ClusterIP"
+env.LOG_LEVEL: "info"

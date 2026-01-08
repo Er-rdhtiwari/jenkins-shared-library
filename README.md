@@ -14,6 +14,7 @@ A Jenkins Shared Library is a reusable set of pipeline steps, classes, and resou
 ```
 jenkins-shared-library/
   README.md
+  RUNBOOKS.md
   .gitignore
   vars/
     awsIdentityCheck.groovy
@@ -258,3 +259,6 @@ pipeline {
 ## Resources
 - Example Helm set params: `resources/templates/helm_set_params_example.yaml`
 - Example Terraform backend config: `resources/templates/terraform_backend_example.hcl`
+
+## Runbooks
+- Operational runbooks: `RUNBOOKS.md`
